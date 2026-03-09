@@ -121,7 +121,3 @@ Works in all modern browsers that support CSS custom properties and ES6+:
 - Edge 79+
 
 ---
-
-## 📄 License
-
-This project is open for personal and educational use.
