@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>CALC — Scientific</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="calculator" id="calc">
+  <div class="header">
+    <span class="logo">CALC</span>
+    <span class="mode-badge">Scientific</span>
+  </div>
+
+  <div class="display-wrap">
+    <div class="expression" id="expression"></div>
+    <div class="display" id="display">0<span class="cursor"></span></div>
+  </div>
+
+  <div class="history-bar" id="historyBar"></div>
+
+  <div class="angle-toggle">
+    <button class="angle-btn active" id="btnDeg" onclick="setAngle('deg')">DEG</button>
+    <button class="angle-btn" id="btnRad" onclick="setAngle('rad')">RAD</button>
+    <button class="angle-btn" id="btnGrad" onclick="setAngle('grad')">GRAD</button>
+  </div>
+
+  <div class="buttons" id="sciButtons">
+
+    <!-- Row 1: Trig -->
+    <button class="btn-sci" onclick="handleSci('sin')">sin</button>
+    <button class="btn-sci" onclick="handleSci('cos')">cos</button>
+    <button class="btn-sci" onclick="handleSci('tan')">tan</button>
+    <button class="btn-sci" onclick="handleSci('log')">log</button>
+    <button class="btn-sci" onclick="handleSci('ln')">ln</button>
+
+    <!-- Row 2: Inverse trig + roots -->
+    <button class="btn-sci" onclick="handleSci('asin')">sin⁻¹</button>
+    <button class="btn-sci" onclick="handleSci('acos')">cos⁻¹</button>
+    <button class="btn-sci" onclick="handleSci('atan')">tan⁻¹</button>
+    <button class="btn-sci" onclick="handleSci('sqrt')">√x</button>
+    <button class="btn-sci" onclick="handleSci('cbrt')">∛x</button>
+
+    <!-- Row 3: Powers -->
+    <button class="btn-sci" onclick="handleSci('x2')">x²</button>
+    <button class="btn-sci" onclick="handleSci('x3')">x³</button>
+    <button class="btn-sci" onclick="handleSci('pow')">xʸ</button>
+    <button class="btn-sci" onclick="handleSci('exp')">eˣ</button>
+    <button class="btn-sci" onclick="handleSci('10x')">10ˣ</button>
+
+    <!-- Row 4: Misc scientific -->
+    <button class="btn-sci" onclick="handleSci('inv')">1/x</button>
+    <button class="btn-sci" onclick="handleSci('abs')">|x|</button>
+    <button class="btn-sci" onclick="handleSci('fact')">n!</button>
+    <button class="btn-sci" onclick="handleSci('pi')">π</button>
+    <button class="btn-sci" onclick="handleSci('e')">e</button>
+
+    <div class="divider" style="grid-column:span 5; margin:4px 0 8px;"></div>
+
+    <!-- Row 5: Clear + utility -->
+    <button class="btn-clear" onclick="clearAll()" style="grid-column:span 2">AC</button>
+    <button class="btn-del" onclick="deleteLast()">⌫</button>
+    <button class="btn-special" onclick="toggleSign()">±</button>
+    <button class="btn-op" onclick="inputOp('%')">%</button>
+
+    <!-- Row 6 -->
+    <button class="btn-num" onclick="inputNum('7')">7</button>
+    <button class="btn-num" onclick="inputNum('8')">8</button>
+    <button class="btn-num" onclick="inputNum('9')">9</button>
+    <button class="btn-op" onclick="inputOp('÷')">÷</button>
+    <button class="btn-op" onclick="inputOp('×')">×</button>
+
+    <!-- Row 7 -->
+    <button class="btn-num" onclick="inputNum('4')">4</button>
+    <button class="btn-num" onclick="inputNum('5')">5</button>
+    <button class="btn-num" onclick="inputNum('6')">6</button>
+    <button class="btn-op" onclick="inputOp('−')">−</button>
+    <button class="btn-op" onclick="inputOp('+')">+</button>
+
+    <!-- Row 8 -->
+    <button class="btn-num" onclick="inputNum('1')">1</button>
+    <button class="btn-num" onclick="inputNum('2')">2</button>
+    <button class="btn-num" onclick="inputNum('3')">3</button>
+    <button class="btn-special" onclick="inputParen('(')"><span style="font-size:17px">(</span></button>
+    <button class="btn-special" onclick="inputParen(')')"><span style="font-size:17px">)</span></button>
+
+    <!-- Row 9 -->
+    <button class="btn-num btn-zero" onclick="inputNum('0')">0</button>
+    <button class="btn-num" onclick="inputDecimal()">.</button>
+    <button class="btn-special" onclick="inputOp('E')"><span style="font-size:11px">EXP</span></button>
+    <button class="btn-eq" onclick="calculate()">=</button>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
